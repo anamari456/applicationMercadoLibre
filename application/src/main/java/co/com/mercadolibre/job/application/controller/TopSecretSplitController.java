@@ -40,7 +40,7 @@ public class TopSecretSplitController {
 
     @PostMapping("/topsecret_split")
     @ResponseBody
-    public ResponseEntity create(@RequestParam(required=true, name="satellite_name") String satelliteName, @RequestBody Satellite satellite) {
+    public ResponseEntity setTopSecretSplit(@RequestParam(required=true, name="satellite_name") String satelliteName, @RequestBody Satellite satellite) {
         satellite.setName(satelliteName);
         List<Satellite> satellitesList = satellites.getSatellites();
         satellitesList.add(satellite);
@@ -50,7 +50,7 @@ public class TopSecretSplitController {
     }
     
     @GetMapping("/topsecret_split")
-    public ResponseEntity<Response> create() {
+    public ResponseEntity<Response> getMessage() {
         Response response = new Response();
         response.setMessage(messageHandler.getMessage(satellites.getMessages()));
         response.setPosition(locationHandler.getLocation(satellites.getDistances()));

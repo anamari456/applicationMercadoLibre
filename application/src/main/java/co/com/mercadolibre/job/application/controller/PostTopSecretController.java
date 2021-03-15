@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package co.com.mercadolibre.job.application.controller;
-
+ 
 import co.com.mercadolibre.job.application.model.Response;
 import co.com.mercadolibre.job.application.model.Satellites;
 import co.com.mercadolibre.job.application.service.LocationHandler;
@@ -31,7 +31,7 @@ public class PostTopSecretController {
     private LocationHandler locationHandler;
 
     @PostMapping("/topsecret")
-    public ResponseEntity<Response> create(@RequestBody Satellites satellites) {
+    public ResponseEntity<Response> setTopSecret(@RequestBody Satellites satellites) {
         Response response = new Response();
         response.setMessage(messageHandler.getMessage(satellites.getMessages()));
         response.setPosition(locationHandler.getLocation(satellites.getDistances()));

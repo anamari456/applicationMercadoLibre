@@ -17,7 +17,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class MessageHandler {
-
+    /**
+     * Obtiene el mensaje completo de l mensaje captado por cada satelite
+     * ordena el mensaje en caso que este desfasado
+     * @param messages
+     * @return 
+     */
     public String getMessage(String[]... messages) {
         String[] responseMessage;
         try {
@@ -51,6 +56,11 @@ public class MessageHandler {
         return String.join(" ", Arrays.asList(responseMessage));
     }
 
+    /**
+     * Devuelve el mensaje completo en un array de String
+     * @param messages
+     * @return 
+     */
     private String[] createMessageResponse(String[][] messages) {
         String[] responseMessage = new String[messages[0].length];
         for (String[] message : messages) {
@@ -64,6 +74,12 @@ public class MessageHandler {
         return responseMessage;
     }
 
+    /**
+     * Compara que los mensajes sean iguales 
+     * @param baseMessage
+     * @param compareMessage
+     * @return 
+     */
     private boolean isMessageEquals(String[] baseMessage, String[] compareMessage) {
         // If the object is compared with itself then return true   
         if (baseMessage == compareMessage) {

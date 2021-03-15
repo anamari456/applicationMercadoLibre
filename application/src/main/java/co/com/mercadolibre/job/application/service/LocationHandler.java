@@ -23,6 +23,11 @@ public class LocationHandler {
     public static final Position SKYWALKER_POSITION = new Position(100.0f, -100.0f);
     public static final Position SATO_POSITION = new Position(500.0f, 100.0f);
 
+    /**
+     * Obtener ubicacion de la nave,
+     * @param floatDistances
+     * @return 
+     */
     public Position getLocation(Float... floatDistances) {
         Position emisorPsition = new Position();
         double[][] positions = new double[][]{{KENOBI_POSITION.getX(),KENOBI_POSITION.getY()}, 
